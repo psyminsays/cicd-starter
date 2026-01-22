@@ -18,11 +18,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Install the package in development mode
-        run: pip install -e .
-
-      - name: Run tests
-        run: pytest --maxfail=1 --disable-warnings
+      - name: Run tests with proper Python path
+        run: python -m pytest --maxfail=1 --disable-warnings
 
       - name: Upload test report
         uses: actions/upload-artifact@v4
